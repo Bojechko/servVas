@@ -9,7 +9,7 @@ app = FastAPI()
 def get_albums(band):
     try:
         return api.get_band_albums(band) 
-    except BaseException: 
+    except Exception : 
         return "No such band"
             
 
@@ -17,6 +17,6 @@ def get_albums(band):
 def get_tracks(band, album):
     try:
         return  api.get_albums_tracks(band, int(album))
-    except BaseException: 
+    except Exception : 
         return "No such album"
 
