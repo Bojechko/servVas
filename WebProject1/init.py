@@ -1,16 +1,22 @@
 from typing import Optional
-
 from fastapi import FastAPI
+import deezer_api as api
 
 app = FastAPI()
 
 
-@app.get("/getAlbums")
-def getAlbums():
+@app.get("/get_albums/{band}")
+def get_albums(band):
+    try:
+        return api.get_band_albums(band) 
+    except BaseException: 
+        return "No such band"
+            
 
-    return {"Hello": "World"}
+@app.get("/get_albums/{band}/{album}")
+def get_tracks(band, album):
+    try:
+        return  api.get_albums_tracks(band, int(album))
+    except BaseException: 
+        return "No such album"
 
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Optional[str] = None):
-    return {"item_id": item_id, "q": q}

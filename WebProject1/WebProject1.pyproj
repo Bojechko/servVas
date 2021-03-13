@@ -38,10 +38,10 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="init.py">
+    <Compile Include="deezer_api.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="api_ym.py">
+    <Compile Include="init.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
