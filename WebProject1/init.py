@@ -16,7 +16,7 @@ def get_albums(band):
 @app.get("/get_albums/{band}/{album}")
 def get_tracks(band, album):
     try:
-        return  api.get_albums_tracks(band, int(album))
+        return  api.get_albums_tracks(band, album)
     except Exception : 
         return "No such album"
 
