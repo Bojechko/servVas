@@ -42,6 +42,9 @@ def test_get_album():
 
 def test_get_album2():
     assert deezer_api.get_album('Korn', 'asdasd') == "No album found"
+    
+def test_get_album3():
+    assert deezer_api.get_album('Korn', 'The Nothing') == 0
 
 
 
