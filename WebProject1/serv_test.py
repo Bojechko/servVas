@@ -4,7 +4,6 @@ import deezer_api
 import deezer
 import pytest
 import unittest
-import json
 from unittest.mock import patch
 
 
@@ -99,12 +98,10 @@ def test_get_albums_tracks9():
 
 class Test_get_band_albums(unittest.TestCase):
     Hypnotize = "{\"0\": {\"Hypnotize\": {\"1442650\": \"https://api.deezer.com/album/1442650/image\"}}"
-    
-    def test_get_band_albums_correct(self):
-        with patch( "deezer.client" , return_value = "{\"0\": {\"Hypnotize\": {\"1442650\": \"https://api.deezer.com/album/1442650/image\"}}") as mock_search:
-            #mock_client.search.return_value = Hypnotize 
-           # mock_search._mock_return_value =  Hypnotize  
-            assert deezer_api.get_band_albums('system s') == json.dumps( "{\"0\": {\"Hypnotize\": {\"1442650\": \"https://api.deezer.com/album/1442650/image\"}}")
+
+    @patch( "deezer.client.search(band, relation='artist')[0].get_albums()" , return_value = "{\"0\": {\"Hypnotize\": {\"1442650\": \"https://api.deezer.com/album/1442650/image\"}}")
+    def test_get_band_albums_correct(self):      
+        assert get_band_albums('system of a down') == json.dumps(Hypnotize)
     
 
 
