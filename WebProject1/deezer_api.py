@@ -16,7 +16,7 @@ def  get_band_albums(band):
 
 
 def  get_album(band, album):
-   albums=client.search(band, relation='artist')[0].get_albums() #ищем альбомы
+   albums=client.search(band, relation='artist')[0].get_albums() #ищем альбом
    inc = 0 
    while inc< len(albums):
        
