@@ -99,7 +99,7 @@ def test_get_albums_tracks9():
 class Test_get_band_albums(unittest.TestCase):
     Hypnotize = "{\"0\": {\"Hypnotize\": {\"1442650\": \"https://api.deezer.com/album/1442650/image\"}}"
 
-    @patch( "deezer.client.search(band, relation='artist')[0].get_albums()" , return_value = "{\"0\": {\"Hypnotize\": {\"1442650\": \"https://api.deezer.com/album/1442650/image\"}}")
+    @patch( "deezer_api.client.search(band, relation='artist')[0].get_albums()" , return_value = "{\"0\": {\"Hypnotize\": {\"1442650\": \"https://api.deezer.com/album/1442650/image\"}}")
     def test_get_band_albums_correct(self):      
         assert get_band_albums('system of a down') == json.dumps(Hypnotize)
     
